@@ -9,7 +9,8 @@ const Dashboard = () => {
     return (
         <div>
         <h1>Welcome {user.username}</h1>
-        <LogOut className='header--link' onClick={handleUserLogout} />
+        <br/>
+        <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '2%', right: '1%'}} />
         <ResultForm/>
         <br />
         <ResultsTable/>

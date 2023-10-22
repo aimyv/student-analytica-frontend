@@ -29,7 +29,7 @@ const ResultForm = () => {
     }
 
     return (
-        <div className='border' style={{width: '75%', margin: 'auto'}}>
+        <div className='border' style={{width: '50%', margin: 'auto', boxShadow: 'none', border: 'solid 2px #55cd4c'}}>
                 <h1>Add Result</h1>
                 <br />
                 <div className='form-wrapper'>
