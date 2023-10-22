@@ -13,7 +13,7 @@ const ResultsTable = () => {
     useEffect(() => {
         fetch('http://127.0.0.1:5000/results').then((response) => response.json())
         .then((actualData) => {
-            setData(actualData);
+            setData(actualData.reverse());
         })
         .catch((err) => {
             console.log(err.message);
@@ -23,26 +23,26 @@ const ResultsTable = () => {
         <>
             <h1>Results Table</h1>
             <br/>
-            <TableContainer component={Paper} style={{width:'50%', margin:'auto'}}>
+            <TableContainer component={Paper} style={{width:'75%', margin:'auto', border: 'solid 2px #55cd4c'}}>
             <Table size="small">
-                <TableHead style={{backgroundColor: 'rgb(226, 227, 232)'}}>
+                <TableHead style={{backgroundColor: '#55cd4c'}}>
                 <TableRow>
-                    <TableCell>ID</TableCell>
-                    <TableCell>Student</TableCell>
-                    <TableCell>Subject</TableCell>
-                    <TableCell>Score</TableCell>
+                    <TableCell style={{color: 'white'}}>ID</TableCell>
+                    <TableCell style={{color: 'white'}}>Student</TableCell>
+                    <TableCell style={{color: 'white'}}>Subject</TableCell>
+                    <TableCell style={{color: 'white'}}>Score</TableCell>
                 </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody style={{backgroundColor: 'rgba(20,20,31,1)'}}>
                 {data.map((item, index) => (
                     <TableRow
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                    <TableCell>{item.id}</TableCell>
-                    <TableCell>{item.student_name}</TableCell>
-                    <TableCell>{item.subject}</TableCell>
-                    <TableCell>{item.score}</TableCell>
+                    <TableCell style={{color: 'white'}}>{item.id}</TableCell>
+                    <TableCell style={{color: 'white'}}>{item.student_name}</TableCell>
+                    <TableCell style={{color: 'white'}}>{item.subject}</TableCell>
+                    <TableCell style={{color: 'white'}}>{item.score}</TableCell>
                     </TableRow>
                 ))}
                 </TableBody>

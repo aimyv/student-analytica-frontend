@@ -54,7 +54,7 @@ h1 {
     padding: 20px 30px 30px 30px;
     box-shadow: 10px 10px var(--themeColorSecondary);
     transition: 0.3s;
-    background-color: var(--secondaryBgColor);;
+    background-color: var(--secondaryBgColor);
 }
 
 .border:hover {
@@ -77,7 +77,8 @@ h1 {
 
 /* Form Input Styling */
 
-input[type="text"], input[type="password"], input[type="email"], textarea{
+input[type="text"], input[type="password"], input[type="email"], textarea,
+input[type="number"], select{
     background: var(--mainBgColor);
     border: none;
     border-bottom: 1px solid var(--borderColor1);
