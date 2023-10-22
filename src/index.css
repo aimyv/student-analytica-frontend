@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 :root{
-    --mainBgColor:rgba(20,20,31,11);
+    --mainBgColor:rgba(20,20,31,1);
     --secondaryBgColor:rgba(27,27,39,1);
     --borderColor1:rgb(147, 190, 176);
     --borderColor2:rgba(79,86,105,1);

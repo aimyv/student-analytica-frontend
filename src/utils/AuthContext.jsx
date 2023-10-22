@@ -49,6 +49,7 @@ export const AuthProvider = ({children})  =>  {
             })
             const accountDetails = {
                 email: credentials.email,
+                username: credentials.name,
                 password1: credentials.password1
             }
             setUser(accountDetails)
