@@ -20,12 +20,9 @@ const BarChart = ({subject}) => {
     }, [subject])
 
     const state = {
-        // labels: ['January', 'February', 'March',
-        // 'April', 'May', 'June', 'July'],
         labels: names,
         datasets: [{
-            label: 'Class results',
-            // data: [65, 59, 80, 81, 56, 55, 40],
+            label: `${subject} Result`,
             data: scores,
             backgroundColor: [
                 'rgba(85, 205, 76, 0.3)'
