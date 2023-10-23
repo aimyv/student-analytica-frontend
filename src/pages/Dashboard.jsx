@@ -4,6 +4,7 @@ import { userAuth } from '../utils/AuthContext'
 import ResultsTable from '../components/ResultsTable'
 import ResultForm from '../components/ResultForm'
 import BarChart from '../components/BarChart'
+import RadarChart from '../components/RadarChart'
 
 const Dashboard = () => {
     const {user, handleUserLogout} = userAuth()
@@ -17,6 +18,8 @@ const Dashboard = () => {
         <ResultsTable/>
         <br/>
         <BarChart subject='maths'/>
+        <br />
+        <RadarChart />
         </div>
     )
 }
