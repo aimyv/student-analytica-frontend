@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
-const BarChart = ({subject}) => {
+const BarChart = ({ subject, toggle }) => {
     const [names, setNames] = useState([]);
     const [scores, setScores] = useState([]);
 
@@ -17,7 +17,7 @@ const BarChart = ({subject}) => {
         .catch((err) => {
             console.log(err.message);
         });
-    }, [subject])
+    }, [toggle])
 
     const state = {
         labels: names,

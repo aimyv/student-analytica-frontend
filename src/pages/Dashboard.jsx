@@ -18,9 +18,9 @@ const Dashboard = () => {
         <br />
         <ResultsTable toggle={toggle}/>
         <br/>
-        <BarChart subject='maths'/>
+        <BarChart subject='Maths' toggle={toggle}/>
         <br />
-        <RadarChart />
+        <RadarChart student_name='Momo' toggle={toggle} />
         </div>
     )
 }

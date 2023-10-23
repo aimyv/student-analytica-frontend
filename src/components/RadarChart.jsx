@@ -19,33 +19,90 @@ ChartJS.register(
     Legend
 );
 
-const data = {
-    labels: ['Maths', 'English', 'Science', 'Art', 'History'],
-    datasets: [
-        {
-            label: 'Student profile',
-            data: [63, 52, 78, 69, 80],
-            backgroundColor: 'rgba(85, 205, 76, 0.2)',
-            borderColor: 'rgba(85, 205, 76, 1)',
-            borderWidth: 1,
-        },
-    ],
-};
+const RadarChart = ({ student_name, toggle }) => {
+    const [maths, setMaths] = useState(0)
+    const [english, setEnglish] = useState(0)
+    const [science, setScience] = useState(0)
+    const [art, setArt] = useState(0)
+    const [history, setHistory] = useState(0)
 
-const RadarChart = () => {
+    useEffect(() => {
+        fetch(`http://127.0.0.1:5000/students/${student_name}/results`).then((response) => response.json())
+        .then((actualData) => {
+            console.log(actualData[0].score)
+            let m = actualData.filter(d => d.subject==='Maths')
+            setMaths(m[m.length-1].score)
+            let e = actualData.filter(d => d.subject==='English')
+            setEnglish(e[e.length-1].score)
+            let s = actualData.filter(d => d.subject==='Science')
+            setScience(s[s.length-1].score)
+            let a = actualData.filter(d => d.subject==='Art')
+            setArt(a[a.length-1].score)
+            let h = actualData.filter(d => d.subject==='History')
+            setHistory(h[h.length-1].score)
+            
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+    }, [toggle])
+
+    const data = {
+        labels: ['Maths', 'English', 'Science', 'Art', 'History'],
+        datasets: [
+            {
+                label: `${student_name}'s latest exam results`,
+                data: [maths, english, science, art, history],
+                backgroundColor: 'rgba(85, 205, 76, 0.2)',
+                borderColor: 'rgba(85, 205, 76, 1)',
+                borderWidth: 1,
+            },
+        ],
+    };
+    function checkMin() {
+        let weak = Math.min(maths, english, science, art, history)
+        if (weak === maths) {
+            return 'Maths'
+        } else if (weak === english) {
+            return 'English'
+        } else if (weak === science) {
+            return 'Science'
+        } else if (weak === art) {
+            return 'Art'
+        } else if (weak === history) {
+            return 'History'
+        }
+    }
+    function checkMax() {
+        let strong = Math.max(maths, english, science, art, history)
+        if (strong === maths) {
+            return 'Maths'
+        } else if (strong === english) {
+            return 'English'
+        } else if (strong === science) {
+            return 'Science'
+        } else if (strong === art) {
+            return 'Art'
+        } else if (strong === history) {
+            return 'History'
+        }
+    }
     return (
         <div style={{width:'50%', margin:'auto'}}>
+            <h2>{student_name}</h2>
             <Radar 
-        data={data}
-        options={{
-            scales: {
-                r: {
-                    suggestedMin: 0,
-                    suggestedMax: 100
-                }
-            }
-        }}
-        />
+                data={data}
+                options={{
+                    scales: {
+                        r: {
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }}
+            />
+            <h3>Strongest area: {checkMax()}</h3>
+            <h3>Weakest area: {checkMin()}</h3>
         </div>
     )
 }
