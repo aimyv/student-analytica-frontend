@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const ResultForm = () => {
+const ResultForm = ({ toggle, setToggle }) => {
 
     const [result, setResult] = useState({
         "student_name": '',
-        "subject": '',
+        "subject": 'Maths',
         "score": '',
         "feedback": ''
     })
@@ -26,6 +26,7 @@ const ResultForm = () => {
             feedback: res.feedback,
         })
         await axios.post('http://127.0.0.1:5000/results', result)
+        setToggle(prevState => !prevState)
     }
 
     return (

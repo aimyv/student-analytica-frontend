@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LogOut } from 'react-feather'
 import { userAuth } from '../utils/AuthContext'
 import ResultsTable from '../components/ResultsTable'
@@ -8,14 +8,15 @@ import RadarChart from '../components/RadarChart'
 
 const Dashboard = () => {
     const {user, handleUserLogout} = userAuth()
+    const [toggle, setToggle] = useState(false);
     return (
         <div>
         <h1 style={{textAlign: 'left'}}>Welcome {user.username}</h1>
         <br/>
         <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '2%', right: '1%'}} />
-        <ResultForm/>
+        <ResultForm toggle={toggle} setToggle={setToggle} />
         <br />
-        <ResultsTable/>
+        <ResultsTable toggle={toggle}/>
         <br/>
         <BarChart subject='maths'/>
         <br />
