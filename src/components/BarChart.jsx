@@ -17,7 +17,7 @@ const BarChart = ({subject}) => {
         .catch((err) => {
             console.log(err.message);
         });
-    }, [names, scores])
+    }, [subject])
 
     const state = {
         // labels: ['January', 'February', 'March',

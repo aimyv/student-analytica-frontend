@@ -7,18 +7,29 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const ResultsTable = () => {
+const ResultsTable = ({subject}) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/results').then((response) => response.json())
+        if (subject == null) {
+            fetch(`http://127.0.0.1:5000/results`).then((response) => response.json())
         .then((actualData) => {
             setData(actualData.reverse());
         })
         .catch((err) => {
             console.log(err.message);
         });
-    }, [data])
+        } else {
+            fetch(`http://127.0.0.1:5000/results/${subject}`).then((response) => response.json())
+        .then((actualData) => {
+            setData(actualData.reverse());
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+        }
+        
+    }, [subject])
     return (
         <>
             <TableContainer component={Paper} style={{width:'75%', margin:'auto', border: 'solid 2px #55cd4c'}}>
