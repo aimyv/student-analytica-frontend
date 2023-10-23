@@ -21,6 +21,7 @@ const Dashboard = () => {
         <BarChart subject='Maths' toggle={toggle}/>
         <br />
         <RadarChart student_name='Momo' toggle={toggle} />
+        <br />
         </div>
     )
 }

@@ -51,7 +51,7 @@ const RadarChart = ({ student_name, toggle }) => {
         labels: ['Maths', 'English', 'Science', 'Art', 'History'],
         datasets: [
             {
-                label: `${student_name}'s latest exam results`,
+                label: `${student_name}'s latest exam result`,
                 data: [maths, english, science, art, history],
                 backgroundColor: 'rgba(85, 205, 76, 0.2)',
                 borderColor: 'rgba(85, 205, 76, 1)',
@@ -88,19 +88,24 @@ const RadarChart = ({ student_name, toggle }) => {
         }
     }
     return (
-        <div style={{width:'50%', margin:'auto'}}>
+        <div className='border' style={{width:'50%', margin:'auto', boxShadow:'none'}}>
             <h2>{student_name}</h2>
+            <br/>
             <Radar 
                 data={data}
                 options={{
                     scales: {
                         r: {
                             suggestedMin: 0,
-                            suggestedMax: 100
+                            suggestedMax: 100,
+                            grid: {
+                                color: 'rgba(255,255,255,0.1)'
+                            }
                         }
                     }
                 }}
             />
+            <br/>
             <h3>Strongest area: {checkMax()}</h3>
             <h3>Weakest area: {checkMin()}</h3>
         </div>

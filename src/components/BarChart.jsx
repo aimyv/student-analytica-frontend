@@ -33,8 +33,23 @@ const BarChart = ({ subject, toggle }) => {
             borderWidth: 1,
         }]
     }
+    function checkMax() {
+        return Math.max.apply(Math, scores)
+    }
+    function checkMean() {
+        let sum = 0
+        for (let i  of scores) {
+            sum += i
+        }
+        return sum / scores.length
+    }
+    function checkMin() {
+        return Math.min.apply(Math, scores)
+    }
     return (
-        <div style={{width:'50%', margin:'auto'}}>
+        <div className='border' style={{width:'50%', margin:'auto', boxShadow:'none'}}>
+            <h2>Class Results for {subject}</h2>
+            <br/>
             <Bar
                 data={state}
                 options={{
@@ -59,6 +74,10 @@ const BarChart = ({ subject, toggle }) => {
                     }
                 }}
             />
+            <br/>
+            <h3>Highest score: {checkMax()}</h3>
+            <h3>Mean score: {checkMean()}</h3>
+            <h3>Lowest score: {checkMin()}</h3>
         </div>
     )
 }
