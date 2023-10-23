@@ -21,8 +21,6 @@ const ResultsTable = () => {
     }, [data])
     return (
         <>
-            <h1>Results Table</h1>
-            <br/>
             <TableContainer component={Paper} style={{width:'75%', margin:'auto', border: 'solid 2px #55cd4c'}}>
             <Table size="small">
                 <TableHead style={{backgroundColor: '#55cd4c'}}>
@@ -33,7 +31,7 @@ const ResultsTable = () => {
                     <TableCell style={{color: 'white'}}>Score</TableCell>
                 </TableRow>
                 </TableHead>
-                <TableBody style={{backgroundColor: 'rgba(20,20,31,1)'}}>
+                <TableBody style={{backgroundColor: 'rgba(27,27,39,1)'}}>
                 {data.map((item, index) => (
                     <TableRow
                     key={index}

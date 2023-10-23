@@ -30,7 +30,7 @@ const ResultForm = () => {
 
     return (
         <div className='border' style={{width: '50%', margin: 'auto', boxShadow: 'none', border: 'solid 2px #55cd4c'}}>
-                <h1>Add Result</h1>
+                <h2>Add Result</h2>
                 <br />
                 <div className='form-wrapper'>
                     <form onSubmit={ (e) =>  { addResult(e, result) } }>
