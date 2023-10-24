@@ -20,7 +20,7 @@ const Dashboard = () => {
         <br/>
         <BarChart subject='Maths' toggle={toggle}/>
         <br />
-        <RadarChart student_name='Momo' toggle={toggle} />
+        <RadarChart student_name='Tom' toggle={toggle} />
         <br />
         </div>
     )
