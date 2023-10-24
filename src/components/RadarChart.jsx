@@ -29,7 +29,7 @@ const RadarChart = ({ student_name, toggle }) => {
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/students/${student_name}/results`).then((response) => response.json())
         .then((actualData) => {
-            console.log(actualData[0].score)
+            // console.log(actualData[0].score)
             let m = actualData.filter(d => d.subject==='Maths')
             setMaths(m[m.length-1].score)
             let e = actualData.filter(d => d.subject==='English')

@@ -7,11 +7,11 @@ const BarChart = ({ subject, toggle }) => {
     const [scores, setScores] = useState([]);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:5000/results/${subject}`).then((response) => response.json())
+        fetch(`http://127.0.0.1:5000/results/${subject}/latest`).then((response) => response.json())
         .then((actualData) => {
-            let n = actualData.map(d => d.student_name)
-            let s = actualData.map(d => d.score)
+            let n = actualData[0]
             setNames(n)
+            let s = actualData[1]
             setScores(s)
         })
         .catch((err) => {
@@ -41,7 +41,7 @@ const BarChart = ({ subject, toggle }) => {
         for (let i  of scores) {
             sum += i
         }
-        return sum / scores.length
+        return Math.round(sum / scores.length)
     }
     function checkMin() {
         return Math.min.apply(Math, scores)
