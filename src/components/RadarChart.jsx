@@ -29,7 +29,6 @@ const RadarChart = ({ student_name, toggle }) => {
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/students/${student_name}/results`).then((response) => response.json())
         .then((actualData) => {
-            // console.log(actualData[0].score)
             let m = actualData.filter(d => d.subject==='Maths')
             if (m.length === 0) {
                 setMaths(0)
@@ -44,7 +43,7 @@ const RadarChart = ({ student_name, toggle }) => {
             }
             let s = actualData.filter(d => d.subject==='Science')
             if (s.length === 0) {
-                setEnglish(0)
+                setScience(0)
             } else {
                 setScience(s[s.length-1].score)
             }
