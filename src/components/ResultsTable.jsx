@@ -22,9 +22,12 @@ const ResultsTable = ({ toggle }) => {
     }, [toggle])
     return (
         <>
-            <TableContainer component={Paper} style={{width:'75%', margin:'auto', border: 'solid 2px #55cd4c'}}>
+        <div className='border2' style={{width:'50%', margin:'auto'}}>
+        <h2>All Results</h2>
+        <br />
+        <TableContainer component={Paper} style={{width:'75%', margin:'auto', border: 'solid 1px white'}}>
             <Table size="small">
-                <TableHead style={{backgroundColor: '#55cd4c'}}>
+                <TableHead style={{backgroundColor: 'rgb(90, 143, 107)'}}>
                 <TableRow>
                     <TableCell style={{color: 'white'}}>ID</TableCell>
                     <TableCell style={{color: 'white'}}>Student</TableCell>
@@ -47,6 +50,8 @@ const ResultsTable = ({ toggle }) => {
                 </TableBody>
             </Table>
             </TableContainer>
+        </div>
+            
         </>
     )
 }

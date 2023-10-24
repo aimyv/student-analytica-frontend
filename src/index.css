@@ -62,6 +62,19 @@ h1 {
     transition: 0.3s;
 }
 
+.border2 {
+    border:1px solid var(--themeColorSecondary);
+    border-radius: 10px;
+    padding: 20px 30px 30px 30px;
+    transition: 0.3s;
+    background-color: var(--secondaryBgColor);
+}
+
+.border2:hover {
+    background-color: rgb(30, 30, 43);
+    transition: 0.3s;
+}
+
 .form--wrapper{
     width: 600px;
     width: 600px;
