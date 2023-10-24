@@ -79,6 +79,7 @@ const RadarChart = ({ student_name, toggle }) => {
             },
         ],
     };
+
     function checkMin() {
         let weak = Math.min(maths, english, science, art, history)
         if (weak === maths) {
@@ -93,6 +94,7 @@ const RadarChart = ({ student_name, toggle }) => {
             return 'History'
         }
     }
+
     function checkMax() {
         let strong = Math.max(maths, english, science, art, history)
         if (strong === maths) {
@@ -107,6 +109,7 @@ const RadarChart = ({ student_name, toggle }) => {
             return 'History'
         }
     }
+    
     return (
         <div className='border2' style={{width:'50%', margin:'auto'}}>
             <h2>{student_name}</h2>

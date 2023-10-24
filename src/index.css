@@ -137,7 +137,6 @@ input[type="number"], select{
     cursor: pointer;
     transition: 0.3s;
     width: 16px;
-    padding-bottom: 4px;
 }
 
 .delete--btn:hover{

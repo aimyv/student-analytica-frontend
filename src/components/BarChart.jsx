@@ -7,7 +7,7 @@ const BarChart = ({ subject, toggle }) => {
     const [scores, setScores] = useState([]);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:5000/results/${subject}/latest`).then((response) => response.json())
+        fetch(`http://127.0.0.1:5000/results/${subject}/average`).then((response) => response.json())
         .then((actualData) => {
             let n = actualData[0]
             setNames(n)
@@ -22,7 +22,7 @@ const BarChart = ({ subject, toggle }) => {
     const state = {
         labels: names,
         datasets: [{
-            label: `${subject} Result`,
+            label: `${subject} Average`,
             data: scores,
             backgroundColor: [
                 'rgba(85, 205, 76, 0.3)'
@@ -33,9 +33,7 @@ const BarChart = ({ subject, toggle }) => {
             borderWidth: 1,
         }]
     }
-    function checkMax() {
-        return Math.max.apply(Math, scores)
-    }
+
     function checkMean() {
         let sum = 0
         for (let i  of scores) {
@@ -43,12 +41,10 @@ const BarChart = ({ subject, toggle }) => {
         }
         return Math.round(sum / scores.length)
     }
-    function checkMin() {
-        return Math.min.apply(Math, scores)
-    }
+
     return (
         <div className='border2' style={{width:'50%', margin:'auto'}}>
-            <h2>Class Results for {subject}</h2>
+            <h2>Class Averages for {subject}</h2>
             <br/>
             <Bar
                 data={state}
@@ -75,9 +71,7 @@ const BarChart = ({ subject, toggle }) => {
                 }}
             />
             <br/>
-            <h3>Highest score: {checkMax()}</h3>
-            <h3>Mean score: {checkMean()}</h3>
-            <h3>Lowest score: {checkMin()}</h3>
+            <h3>Mean Average of Class: {checkMean()}</h3>
         </div>
     )
 }
