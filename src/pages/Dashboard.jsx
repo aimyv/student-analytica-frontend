@@ -16,7 +16,7 @@ const Dashboard = () => {
         <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '2%', right: '1%'}} />
         <ResultForm toggle={toggle} setToggle={setToggle} />
         <br />
-        <ResultsTable toggle={toggle}/>
+        <ResultsTable toggle={toggle} setToggle={setToggle} />
         <br/>
         <BarChart subject='Maths' toggle={toggle}/>
         <br />

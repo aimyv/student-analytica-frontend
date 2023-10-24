@@ -31,15 +31,36 @@ const RadarChart = ({ student_name, toggle }) => {
         .then((actualData) => {
             // console.log(actualData[0].score)
             let m = actualData.filter(d => d.subject==='Maths')
-            setMaths(m[m.length-1].score)
+            if (m.length === 0) {
+                setMaths(0)
+            } else {
+                setMaths(m[m.length-1].score)
+            }
             let e = actualData.filter(d => d.subject==='English')
-            setEnglish(e[e.length-1].score)
+            if (e.length === 0) {
+                setEnglish(0)
+            } else {
+                setEnglish(e[e.length-1].score)
+            }
             let s = actualData.filter(d => d.subject==='Science')
-            setScience(s[s.length-1].score)
+            if (s.length === 0) {
+                setEnglish(0)
+            } else {
+                setScience(s[s.length-1].score)
+            }
             let a = actualData.filter(d => d.subject==='Art')
-            setArt(a[a.length-1].score)
+            if (a.length === 0) {
+                setArt(0)
+            } else {
+                setArt(a[a.length-1].score)
+            }
             let h = actualData.filter(d => d.subject==='History')
-            setHistory(h[h.length-1].score)
+            if (h.length === 0) {
+                setHistory(0)
+            } else {
+                setHistory(h[h.length-1].score)
+            }
+            
             
         })
         .catch((err) => {

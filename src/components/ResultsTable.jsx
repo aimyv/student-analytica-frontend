@@ -6,8 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Trash2 } from 'react-feather'
+import axios from 'axios';
 
-const ResultsTable = ({ toggle }) => {
+const ResultsTable = ({ toggle, setToggle }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -41,7 +43,10 @@ const ResultsTable = ({ toggle }) => {
                     <TableCell style={{color: 'white'}}>{item.id}</TableCell>
                     <TableCell style={{color: 'white'}}>{item.student_name}</TableCell>
                     <TableCell style={{color: 'white'}}>{item.subject}</TableCell>
-                    <TableCell style={{color: 'white'}}>{item.score}</TableCell>
+                    <TableCell style={{color: 'white', display: 'flex', justifyContent: 'space-between'}}><div>{item.score}</div><Trash2 className='delete--btn' onClick={async() => {
+                        await axios.delete(`http://127.0.0.1:5000/results/${item.id}`)
+                        setToggle(!toggle)
+                        }}/></TableCell>
                     </TableRow>
                 ))}
                 </TableBody>
