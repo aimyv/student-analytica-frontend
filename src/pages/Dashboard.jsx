@@ -12,10 +12,12 @@ const Dashboard = () => {
     return (
         <div>
         <br/>
-        <h1 style={{fontSize: '400%'}}>Student Analytica</h1>
-        <br/>
         <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '2%', right: '1%'}} />
-        <ResultForm toggle={toggle} setToggle={setToggle} />
+        <div style={{display: 'flex', alignItems: 'center', justifyContent:'space-between', width: '80%', margin:'auto'}}>
+            <h1 style={{fontSize: '400%', width: '40%'}}>All Results</h1>
+            <ResultForm toggle={toggle} setToggle={setToggle} />
+        </div>
+        <br />
         <br />
         <ResultsTable toggle={toggle} setToggle={setToggle} />
         <br/>

@@ -23,7 +23,7 @@ const RegisterPage = () => {
     return (
         <div className='auth--container'>
             <div className='border'>
-                <h1>Register</h1>
+                <h1 style={{textAlign: 'center'}}>Register</h1>
                 <br />
                 <div className='form-wrapper'>
                     <form onSubmit={(e) =>  {handleUserRegister(e, credentials)}}>

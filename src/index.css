@@ -51,10 +51,10 @@ h1 {
 }
 
 .border {
-    border:1px solid var(--themeColorSecondary);
+    border:1px solid #55cd4c;
     border-radius: 10px;
     padding: 20px 30px 30px 30px;
-    box-shadow: 10px 10px var(--themeColorSecondary);
+    box-shadow: 10px 10px #55cd4c;
     transition: 0.3s;
     background-color: var(--secondaryBgColor);
 }
@@ -97,12 +97,11 @@ input[type="number"], select{
     background: var(--mainBgColor);
     border: none;
     border-bottom: 1px solid var(--borderColor1);
-    padding: 1rem;
-    border-radius: 3px;
+    padding: 0.75rem;
+    border-radius: 5px;
     width: 100%;
     color: var(--color-light);
     outline: none;
-    font-size: 18px;
     text-shadow: none !important;
 }
 

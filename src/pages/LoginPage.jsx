@@ -27,7 +27,7 @@ const LoginPage = () => {
     return (
         <div className='auth--container'>
             <div className='border'>
-                <h1>Login</h1>
+                <h1 style={{textAlign: 'center'}}>Login</h1>
                 <br />
                 <div className='form-wrapper'>
                     <form onSubmit={(e) =>  {handleUserLogin(e, credentials)}}>

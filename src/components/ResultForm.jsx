@@ -30,27 +30,30 @@ const ResultForm = ({ toggle, setToggle }) => {
     }
 
     return (
-        <div className='border2' style={{width: '50%', margin: 'auto', boxShadow: 'none'}}>
-                <h2>Add Result</h2>
+        <div className='border2' style={{width: '60%', margin: 'auto'}}>
+                <h2 style={{textAlign: 'center'}}>New Result</h2>
                 <br />
                 <div className='form-wrapper'>
                     <form onSubmit={ (e) =>  { addResult(e, result) } }>
-                        <div className='field--wrapper'>
+
+                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <label>Name:</label>
                             <input type='text' 
                             required 
                             name='student_name' 
                             placeholder='Enter student name'
                             value={result.student_name}
-                            onChange={handleInputChange} />
+                            onChange={handleInputChange}
+                            style={{width: '80%'}}/>
                         </div>
 
-                        <div className='field--wrapper'>
+                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <label>Subject:</label>
                             <select 
                             required 
                             name="subject" 
-                            onChange={handleInputChange}>
+                            onChange={handleInputChange}
+                            style={{width: '80%'}}  >
                             <option value="Maths">Maths</option>
                             <option value="English">English</option>
                             <option value="Science">Science</option>
@@ -59,16 +62,18 @@ const ResultForm = ({ toggle, setToggle }) => {
                             </select>
                         </div>
 
-                        <div className='field--wrapper'>
-                            <label>Percentage Score:</label>
+                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+                            <label>Score (%):</label>
                             <input type='number' 
                             required 
                             name='score' 
                             value={result.score}
-                            onChange={handleInputChange} />
+                            onChange={handleInputChange}
+                            style={{width: '80%'}} />
                         </div>
+                        
 
-                        <div className='field--wrapper'>
+                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <label>Feedback:</label>
                             <textarea 
                             required 
@@ -76,12 +81,13 @@ const ResultForm = ({ toggle, setToggle }) => {
                             placeholder='Write feedback' 
                             name='feedback'
                             value={result.feedback}
-                            onChange={handleInputChange} >
+                            onChange={handleInputChange}
+                            style={{width: '80%'}} >
                             </textarea>
                         </div>
 
                         <div className='field--wrapper'>
-                            <input className='btn btn--lg btn--main' 
+                            <input className='btn btn--lg' style={{backgroundColor: 'rgb(90, 143, 107)', color: 'white'}}
                             type='submit'
                             value='Add Result'  />
                         </div>
