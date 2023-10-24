@@ -11,7 +11,8 @@ const Dashboard = () => {
     const [toggle, setToggle] = useState(false);
     return (
         <div>
-        <h1 style={{textAlign: 'left'}}>Welcome {user.username}</h1>
+        <br/>
+        <h1 style={{fontSize: '400%'}}>Student Analytica</h1>
         <br/>
         <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '2%', right: '1%'}} />
         <ResultForm toggle={toggle} setToggle={setToggle} />

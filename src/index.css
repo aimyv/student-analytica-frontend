@@ -1,6 +1,7 @@
 /* Global settings */
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root{
     --mainBgColor:rgba(20,20,31,1);
@@ -17,7 +18,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -35,7 +36,8 @@ body {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
+    color: white;
 }
 
 /* Login & Register Pages */
@@ -71,7 +73,7 @@ h1 {
 }
 
 .border2:hover {
-    background-color: rgb(30, 30, 43);
+    background-color: rgb(38, 38, 54);
     transition: 0.3s;
 }
 
@@ -133,7 +135,7 @@ input[type="number"], select{
 }
 
 .delete--btn{
-    color: #82d97c;
+    color: #55cd4c;
     cursor: pointer;
     transition: 0.3s;
     width: 16px;
@@ -144,11 +146,11 @@ input[type="number"], select{
 }
 
 .header--link{
-    color: white;
+    color: #55cd4c;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .header--link:hover{
-    color: #55cd4c;
+    color: white;
 }

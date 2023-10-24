@@ -43,8 +43,8 @@ const BarChart = ({ subject, toggle }) => {
     }
 
     return (
-        <div className='border2' style={{width:'50%', margin:'auto'}}>
-            <h2>Class Averages for {subject}</h2>
+        <div style={{width: '95%', margin: 'auto'}}>
+            <h1>{subject}</h1>
             <br/>
             <Bar
                 data={state}

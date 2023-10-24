@@ -28,10 +28,10 @@ const ResultsTable = ({ toggle, setToggle }) => {
             <Table size="small">
                 <TableHead style={{backgroundColor: 'rgb(90, 143, 107)'}}>
                 <TableRow>
-                    <TableCell style={{color: 'white'}}>ID</TableCell>
-                    <TableCell style={{color: 'white'}}>Student</TableCell>
-                    <TableCell style={{color: 'white'}}>Subject</TableCell>
-                    <TableCell style={{color: 'white'}}>Score</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>ID</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>Student</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>Subject</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>Score</TableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody style={{backgroundColor: 'rgba(27,27,39,1)'}}>
@@ -40,10 +40,10 @@ const ResultsTable = ({ toggle, setToggle }) => {
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                    <TableCell style={{color: 'white'}}>{item.id}</TableCell>
-                    <TableCell style={{color: 'white'}}>{item.student_name}</TableCell>
-                    <TableCell style={{color: 'white'}}>{item.subject}</TableCell>
-                    <TableCell style={{color: 'white', display: 'flex', justifyContent: 'space-between'}}><div>{item.score}</div><Trash2 className='delete--btn' onClick={async() => {
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>{item.id}</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>{item.student_name}</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>{item.subject}</TableCell>
+                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif', display: 'flex', justifyContent: 'space-between'}}><div>{item.score}</div><Trash2 className='delete--btn' onClick={async() => {
                         await axios.delete(`http://127.0.0.1:5000/results/${item.id}`)
                         setToggle(!toggle)
                         }}/></TableCell>
