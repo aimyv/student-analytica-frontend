@@ -89,26 +89,13 @@ h1 {
 input[type="text"], input[type="password"], input[type="email"], textarea,
 input[type="number"], select{
     background: var(--mainBgColor);
-    border: none;
-    border-bottom: 1px solid var(--borderColor1);
+    border: solid 1px var(--themeColorSecondary);
     padding: 0.75rem;
     border-radius: 5px;
     width: 100%;
     color: var(--color-light);
     outline: none;
     text-shadow: none !important;
-}
-
-.resultFormFields {
-    background-color: white;
-    border-radius: 5px;
-    border: solid 1px var(--themeColorSecondary);
-    border-bottom: none;
-    margin: 10px auto;
-}
-
-.resultFormFields > input:focus, select:focus, textarea:focus {
-    border: solid 1px #55cd4c;
 }
 
 /* Button Styling */

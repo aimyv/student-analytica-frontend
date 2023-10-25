@@ -15,10 +15,11 @@ const Dashboard = () => {
         <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '2%', right: '1%'}} />
         <h1 style={{fontSize: '400%', textAlign: 'center', color: '#55cd4c'}}>Student Analytica</h1>
         <br/>
-        <div style={{display: 'flex', justifyContent:'space-between', width: '80%', margin:'auto'}}>
+        {/* <div style={{display: 'flex', justifyContent:'space-between', width: '80%', margin:'auto'}}> */}
             <ResultForm toggle={toggle} setToggle={setToggle} />
+            <br/>
             <BarChart subject='Maths' toggle={toggle}/>
-        </div>
+        {/* </div> */}
         <br /><br />
         <ResultsTable toggle={toggle} setToggle={setToggle} />
         <br />

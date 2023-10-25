@@ -30,13 +30,12 @@ const ResultForm = ({ toggle, setToggle }) => {
     }
 
     return (
-        <div className='border2' style={{width: '40%'}}>
-                <h2 style={{textAlign: 'center'}}>New Result</h2>
-                <br />
+        <div className='border2' style={{width: '50%', margin: 'auto'}}>
                 <div className='form-wrapper'>
                     <form onSubmit={ (e) =>  { addResult(e, result) } }>
 
-                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                            <div style={{margin: '5px 0', width: '30%'}}>
                             <input type='text' 
                             required 
                             name='student_name' 
@@ -46,12 +45,12 @@ const ResultForm = ({ toggle, setToggle }) => {
                             />
                         </div>
 
-                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+                        <div style={{margin: '5px 0', width: '30%'}}>
                             <select 
                             required 
                             name="subject" 
                             onChange={handleInputChange}
-                              >
+                            >
                             <option value="Maths">Maths</option>
                             <option value="English">English</option>
                             <option value="Science">Science</option>
@@ -60,18 +59,20 @@ const ResultForm = ({ toggle, setToggle }) => {
                             </select>
                         </div>
 
-                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+                        <div style={{margin: '5px 0', width: '30%'}}>
                             <input type='number' 
                             required 
                             name='score' 
                             placeholder='Score (%)'
                             value={result.score}
                             onChange={handleInputChange}
-                             />
+                            />
+                        </div>
                         </div>
                         
+                        
 
-                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between', margin: '5px 0'}}>
                             <textarea 
                             required 
                             maxLength='300' 
@@ -79,14 +80,14 @@ const ResultForm = ({ toggle, setToggle }) => {
                             name='feedback'
                             value={result.feedback}
                             onChange={handleInputChange}
-                             >
+                            >
                             </textarea>
                         </div>
-
+                        <br/>
                         <div className='field--wrapper'>
                             <input className='btn btn--lg' style={{backgroundColor: 'rgb(90, 143, 107)', color: 'white'}}
                             type='submit'
-                            value='Add Result'  />
+                            value='Add Result ＋'  />
                         </div>
                     </form>
                 </div>
