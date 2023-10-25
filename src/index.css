@@ -68,13 +68,7 @@ h1 {
     border:1px solid var(--themeColorSecondary);
     border-radius: 10px;
     padding: 20px 30px 30px 30px;
-    transition: 0.3s;
     background-color: var(--secondaryBgColor);
-}
-
-.border2:hover {
-    background-color: rgb(38, 38, 54);
-    transition: 0.3s;
 }
 
 .form--wrapper{
@@ -105,6 +99,17 @@ input[type="number"], select{
     text-shadow: none !important;
 }
 
+.resultFormFields {
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px var(--themeColorSecondary);
+    border-bottom: none;
+    margin: 10px auto;
+}
+
+.resultFormFields > input:focus, select:focus, textarea:focus {
+    border: solid 1px #55cd4c;
+}
 
 /* Button Styling */
 

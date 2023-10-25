@@ -43,8 +43,8 @@ const BarChart = ({ subject, toggle }) => {
     }
 
     return (
-        <div style={{width: '95%', margin: 'auto'}}>
-            <h1>{subject}</h1>
+        <div className='border2' style={{width: '50%', margin: 'auto 0 auto auto'}}>
+            <h2>{subject}</h2>
             <br/>
             <Bar
                 data={state}

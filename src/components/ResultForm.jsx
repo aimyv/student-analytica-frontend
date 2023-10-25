@@ -30,30 +30,28 @@ const ResultForm = ({ toggle, setToggle }) => {
     }
 
     return (
-        <div className='border2' style={{width: '60%', margin: 'auto'}}>
+        <div className='border2' style={{width: '40%'}}>
                 <h2 style={{textAlign: 'center'}}>New Result</h2>
                 <br />
                 <div className='form-wrapper'>
                     <form onSubmit={ (e) =>  { addResult(e, result) } }>
 
-                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
-                            <label>Name:</label>
+                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <input type='text' 
                             required 
                             name='student_name' 
                             placeholder='Enter student name'
                             value={result.student_name}
                             onChange={handleInputChange}
-                            style={{width: '80%'}}/>
+                            />
                         </div>
 
-                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
-                            <label>Subject:</label>
+                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <select 
                             required 
                             name="subject" 
                             onChange={handleInputChange}
-                            style={{width: '80%'}}  >
+                              >
                             <option value="Maths">Maths</option>
                             <option value="English">English</option>
                             <option value="Science">Science</option>
@@ -62,19 +60,18 @@ const ResultForm = ({ toggle, setToggle }) => {
                             </select>
                         </div>
 
-                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
-                            <label>Score (%):</label>
+                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <input type='number' 
                             required 
                             name='score' 
+                            placeholder='Score (%)'
                             value={result.score}
                             onChange={handleInputChange}
-                            style={{width: '80%'}} />
+                             />
                         </div>
                         
 
-                        <div className='field--wrapper' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
-                            <label>Feedback:</label>
+                        <div className='resultFormFields' style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
                             <textarea 
                             required 
                             maxLength='300' 
@@ -82,7 +79,7 @@ const ResultForm = ({ toggle, setToggle }) => {
                             name='feedback'
                             value={result.feedback}
                             onChange={handleInputChange}
-                            style={{width: '80%'}} >
+                             >
                             </textarea>
                         </div>
 
