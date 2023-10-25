@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LogOut } from 'react-feather'
 import { userAuth } from '../utils/AuthContext'
 import ResultsTable from '../components/ResultsTable'
@@ -51,30 +51,51 @@ const Dashboard = () => {
     };
     const {user, handleUserLogout} = userAuth()
     const [toggle, setToggle] = useState(false);
+
+    const [names, setNames] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://127.0.0.1:5000/students`).then((response) => response.json())
+        .then((actualData) => {
+            let n = actualData.map(x => x.name)
+            setNames(n)
+            console.log(n)
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+        
+    }, [toggle])
+
     return (
         <div>
             <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'white' }}>
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" TabIndicatorProps={{
-    style: {
-      backgroundColor: "#55cd4c"
-    }
-  }}>
+                    style: {
+                        backgroundColor: "#55cd4c"
+                    }
+                }}>
                 <Tab label="Results" {...a11yProps(0)}  style={{fontFamily: 'Montserrat', color: 'white'}} />
                 <Tab label="Class" {...a11yProps(1)}  style={{fontFamily: 'Montserrat', color: 'white'}} />
                 <Tab label="Student" {...a11yProps(2)}  style={{fontFamily: 'Montserrat', color: 'white'}} />
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-                <div className='resultsGrid'>
-                    <h1 style={{fontSize: '300%', width: '100%', margin: 'auto'}}>Add New Result</h1>
+                <h1 style={{fontSize: '300%'}}>All Results</h1>
+                <p>Use the form to enter a student's name as well as their score and feedback for a subject to enter a new result, or view all student results in the table below.</p>
+                <br/>
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <h2 style={{fontSize: '250%', width: '50%', margin: 'auto'}}>Add Result</h2>
                     <ResultForm toggle={toggle} setToggle={setToggle} />
                     <ResultsTable toggle={toggle} setToggle={setToggle} />
-                    <h1 style={{fontSize: '300%', width: '100%', margin: 'auto', textAlign: 'right'}}>View All Results</h1>
+                    <h2  style={{fontSize: '250%', textAlign: 'right', width: '50%', margin: 'auto'}}>View Results</h2>
                 </div>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
                 <h1 style={{fontSize: '300%'}}>Class Results by Subject</h1>
+                <p>View each student's average result for each subject.</p>
+                <br/>
                 <div className='classGrid'>
                     <BarChart subject='Maths' toggle={toggle}/>
                     <BarChart subject='English' toggle={toggle}/>
@@ -85,9 +106,12 @@ const Dashboard = () => {
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
                 <h1 style={{fontSize: '300%'}}>Student Results</h1>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <RadarChart student_name='Tom' toggle={toggle}  setToggle={setToggle} />
-                    <RadarChart student_name='Momo' toggle={toggle}  setToggle={setToggle} />
+                <p>View each student's latest result for each subject and generate study strategies based on their latest feedback.</p>
+                <br/>
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                    {names.map((item) => (
+                        <RadarChart student_name={item} toggle={toggle}  setToggle={setToggle} />
+                    ))}
                 </div>
             </CustomTabPanel>
             </Box>

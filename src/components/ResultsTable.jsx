@@ -24,7 +24,7 @@ const ResultsTable = ({ toggle, setToggle }) => {
     }, [toggle])
     return (
         <>
-        <TableContainer component={Paper} style={{width:'100%', margin:'auto', border: 'solid 1px white'}}>
+        <TableContainer component={Paper} style={{width:'50%', margin:'auto', border: 'solid 1px white'}}>
             <Table size="small">
                 <TableHead style={{backgroundColor: 'rgb(90, 143, 107)'}}>
                 <TableRow>
