@@ -66,19 +66,29 @@ const Dashboard = () => {
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-                <h1 style={{fontSize: '300%', width: '60%', margin: 'auto'}}>Add New Result</h1>
-                <ResultForm toggle={toggle} setToggle={setToggle} />
-                <br />
-                <h1 style={{fontSize: '300%', width: '60%', margin: 'auto', textAlign: 'right'}}>View All Results</h1>
-                <ResultsTable toggle={toggle} setToggle={setToggle} />
+                <div className='resultsGrid'>
+                    <h1 style={{fontSize: '300%', width: '100%', margin: 'auto'}}>Add New Result</h1>
+                    <ResultForm toggle={toggle} setToggle={setToggle} />
+                    <ResultsTable toggle={toggle} setToggle={setToggle} />
+                    <h1 style={{fontSize: '300%', width: '100%', margin: 'auto', textAlign: 'right'}}>View All Results</h1>
+                </div>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                <h1 style={{fontSize: '300%', textAlign: 'center', color: '#55cd4c'}}>Class</h1>
-                <BarChart subject='Maths' toggle={toggle}/>
+                <h1 style={{fontSize: '300%'}}>Class Results by Subject</h1>
+                <div className='classGrid'>
+                    <BarChart subject='Maths' toggle={toggle}/>
+                    <BarChart subject='English' toggle={toggle}/>
+                    <BarChart subject='Science' toggle={toggle}/>
+                    <BarChart subject='Art' toggle={toggle}/>
+                    <BarChart subject='History' toggle={toggle}/>
+                </div>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                <h1 style={{fontSize: '300%', textAlign: 'center', color: '#55cd4c'}}>Student</h1>
-                <RadarChart student_name='Momo' toggle={toggle}  setToggle={setToggle} />
+                <h1 style={{fontSize: '300%'}}>Student Results</h1>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <RadarChart student_name='Tom' toggle={toggle}  setToggle={setToggle} />
+                    <RadarChart student_name='Momo' toggle={toggle}  setToggle={setToggle} />
+                </div>
             </CustomTabPanel>
             </Box>
         <LogOut className='header--link' onClick={handleUserLogout} style={{position: 'fixed', top: '1.5%', right: '1%'}} />

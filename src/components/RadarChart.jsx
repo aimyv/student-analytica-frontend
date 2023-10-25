@@ -158,7 +158,7 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
     }
     
     return (
-        <div className='border2' style={{width:'50%', margin:'auto'}}>
+        <div className='border2' style={{width:'45%', margin:'auto'}}>
             <h2>{student_name}</h2>
             <br/>
             <Radar 

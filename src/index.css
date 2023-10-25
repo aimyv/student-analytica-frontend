@@ -35,6 +35,27 @@ body {
     margin:20px auto;
 }
 
+.resultsGrid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 20px 20px; 
+    grid-template-areas: 
+    ". ."
+    ". ."; 
+}
+
+.classGrid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 20px 20px; 
+    grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."; 
+}
+
 h1 {
     text-align: left;
     color: white;
