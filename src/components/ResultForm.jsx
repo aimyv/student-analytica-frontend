@@ -30,7 +30,7 @@ const ResultForm = ({ toggle, setToggle }) => {
     }
 
     return (
-        <div className='border2' style={{width: '50%', margin: 'auto'}}>
+        <div className='border2' style={{width: '60%', margin: 'auto', border: 'solid 1px white'}}>
                 <div className='form-wrapper'>
                     <form onSubmit={ (e) =>  { addResult(e, result) } }>
 

@@ -137,11 +137,11 @@ input[type="number"], select{
 }
 
 .header--link{
-    color: #55cd4c;
+    color: white;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .header--link:hover{
-    color: white;
+    color: #55cd4c;
 }
