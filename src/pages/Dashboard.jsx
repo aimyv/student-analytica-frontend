@@ -23,7 +23,7 @@ const Dashboard = () => {
         <br /><br />
         <ResultsTable toggle={toggle} setToggle={setToggle} />
         <br />
-        <RadarChart student_name='Tom' toggle={toggle} />
+        <RadarChart student_name='Tom' toggle={toggle}  setToggle={setToggle} />
         <br />
         </div>
     )

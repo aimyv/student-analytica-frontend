@@ -9,6 +9,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
+import axios from 'axios';
 
 ChartJS.register(
     RadialLinearScale,
@@ -19,47 +20,67 @@ ChartJS.register(
     Legend
 );
 
-const RadarChart = ({ student_name, toggle }) => {
-    const [maths, setMaths] = useState(0)
-    const [english, setEnglish] = useState(0)
-    const [science, setScience] = useState(0)
-    const [art, setArt] = useState(0)
-    const [history, setHistory] = useState(0)
+const RadarChart = ({ student_name, toggle, setToggle }) => {
+    const [maths, setMaths] = useState({
+        'score': 0,
+        'feedback': ''
+    })
+    const [english, setEnglish] = useState({
+        'score': 0,
+        'feedback': ''
+    })
+    const [science, setScience] = useState({
+        'score': 0,
+        'feedback': ''
+    })
+    const [art, setArt] = useState({
+        'score': 0,
+        'feedback': ''
+    })
+    const [history, setHistory] = useState({
+        'score': 0,
+        'feedback': ''
+    })
+    const [strategy, setStrategy] = useState(null)
 
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/students/${student_name}/results`).then((response) => response.json())
         .then((actualData) => {
             let m = actualData.filter(d => d.subject==='Maths')
-            if (m.length === 0) {
-                setMaths(0)
-            } else {
-                setMaths(m[m.length-1].score)
+            if (m.length !== 0) {
+                setMaths({
+                    'score': m[m.length-1].score,
+                    'feedback': m[m.length-1].feedback
+                })
             }
             let e = actualData.filter(d => d.subject==='English')
-            if (e.length === 0) {
-                setEnglish(0)
-            } else {
-                setEnglish(e[e.length-1].score)
+            if (e.length !== 0) {
+                setEnglish({
+                    'score': e[e.length-1].score,
+                    'feedback': e[e.length-1].feedback
+                })
             }
             let s = actualData.filter(d => d.subject==='Science')
-            if (s.length === 0) {
-                setScience(0)
-            } else {
-                setScience(s[s.length-1].score)
+            if (s.length !== 0) {
+                setScience({
+                    'score': s[s.length-1].score,
+                    'feedback': s[s.length-1].feedback
+                })
             }
             let a = actualData.filter(d => d.subject==='Art')
-            if (a.length === 0) {
-                setArt(0)
-            } else {
-                setArt(a[a.length-1].score)
+            if (a.length !== 0) {
+                setArt({
+                    'score': a[a.length-1].score,
+                    'feedback': a[a.length-1].feedback
+                })
             }
             let h = actualData.filter(d => d.subject==='History')
-            if (h.length === 0) {
-                setHistory(0)
-            } else {
-                setHistory(h[h.length-1].score)
+            if (h.length !== 0) {
+                setHistory({
+                    'score': h[h.length-1].score,
+                    'feedback': h[h.length-1].feedback
+                })
             }
-            
             
         })
         .catch((err) => {
@@ -72,7 +93,7 @@ const RadarChart = ({ student_name, toggle }) => {
         datasets: [
             {
                 label: `${student_name}'s latest exam result`,
-                data: [maths, english, science, art, history],
+                data: [maths['score'], english['score'], science['score'], art['score'], history['score']],
                 backgroundColor: 'rgba(85, 205, 76, 0.2)',
                 borderColor: 'rgba(85, 205, 76, 1)',
                 borderWidth: 1,
@@ -81,33 +102,59 @@ const RadarChart = ({ student_name, toggle }) => {
     };
 
     function checkMin() {
-        let weak = Math.min(maths, english, science, art, history)
-        if (weak === maths) {
+        let weak = Math.min(maths['score'], english['score'], science['score'], art['score'], history['score'])
+        if (weak === maths['score']) {
             return 'Maths'
-        } else if (weak === english) {
+        } else if (weak === english['score']) {
             return 'English'
-        } else if (weak === science) {
+        } else if (weak === science['score']) {
             return 'Science'
-        } else if (weak === art) {
+        } else if (weak === art['score']) {
             return 'Art'
-        } else if (weak === history) {
+        } else if (weak === history['score']) {
             return 'History'
         }
     }
 
     function checkMax() {
-        let strong = Math.max(maths, english, science, art, history)
-        if (strong === maths) {
+        let strong = Math.max(maths['score'], english['score'], science['score'], art['score'], history['score'])
+        if (strong === maths['score']) {
             return 'Maths'
-        } else if (strong === english) {
+        } else if (strong === english['score']) {
             return 'English'
-        } else if (strong === science) {
+        } else if (strong === science['score']) {
             return 'Science'
-        } else if (strong === art) {
+        } else if (strong === art['score']) {
             return 'Art'
-        } else if (strong === history) {
+        } else if (strong === history['score']) {
             return 'History'
         }
+    }
+
+    async function handleResponse() {
+        let message = []
+        if (maths['feedback'] != '') {
+            message.push(`My maths feedback says: "${maths['feedback']}" How can I improve?`)
+        }
+        if (english['feedback'] != '') {
+            message.push(`My english feedback says: "${english['feedback']}" How can I improve?`)
+        }
+        if (science['feedback'] != '') {
+            message.push(`My science feedback says: "${science['feedback']}" How can I improve?`)
+        }
+        if (art['feedback'] != '') {
+            message.push(`My art feedback says: "${art['feedback']}" How can I improve?`)
+        }
+        if (history['feedback'] != '') {
+            message.push(`My history feedback says: "${history['feedback']}" How can I improve?`)
+        }
+        const feedback = {
+            "message": message.toString()
+        }
+        const response = await axios.post('http://localhost:5000/report', feedback)
+        setStrategy(response.data.content)
+        console.log(response.data.content)
+        setToggle(!toggle)
     }
     
     return (
@@ -128,9 +175,15 @@ const RadarChart = ({ student_name, toggle }) => {
                     }
                 }}
             />
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                <div>
+                    <h2>Strongest area: {checkMax()}</h2>
+                    <h2>Weakest area: {checkMin()}</h2>
+                </div>
+                <button className='btn btn--main' onClick={handleResponse}>Generate Report</button>
+            </div>
             <br/>
-            <h3>Strongest area: {checkMax()}</h3>
-            <h3>Weakest area: {checkMin()}</h3>
+            <p>{strategy}</p>
         </div>
     )
 }
