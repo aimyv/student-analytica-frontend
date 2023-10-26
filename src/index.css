@@ -35,14 +35,49 @@ body {
     margin:20px auto;
 }
 
-.resultsGrid {
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
-    gap: 20px 20px; 
-    grid-template-areas: 
-    ". ."
-    ". ."; 
+#addResult {
+    font-size: 250%; 
+    width: 50%; 
+    margin: auto
+}
+
+.results {
+    width: 50%;
+}
+
+#viewResults {
+    font-size: 250%; 
+    text-align: right; 
+    width: 50%; 
+    margin: auto
+}
+
+@media only screen and (max-width: 680px) {
+    .results {
+        display: 'flex'; 
+        flex-direction: 'column'; 
+        width: 80%;
+        margin: auto
+    }
+    #addResult {
+        width: 100%; 
+        text-align: center;
+    }
+    #viewResults {
+        width: 100%; 
+        text-align: center;
+        order:-1;
+    }
+    ResultForm {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    TableCell {
+        font-size: 5px;
+    }
 }
 
 .classGrid {
@@ -59,6 +94,7 @@ body {
 h1 {
     text-align: left;
     color: white;
+    font-size: 300%;
 }
 
 /* Login & Register Pages */
@@ -117,6 +153,10 @@ input[type="number"], select{
     color: var(--color-light);
     outline: none;
     text-shadow: none !important;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus, input[type="number"]:focus, select:focus {
+    border: solid 1px #55cd4c;
 }
 
 /* Button Styling */

@@ -151,9 +151,9 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
         const feedback = {
             "message": message.toString()
         }
+        console.log(feedback)
         const response = await axios.post('http://localhost:5000/report', feedback)
         setStrategy(response.data.content)
-        console.log(response.data.content)
         setToggle(!toggle)
     }
     

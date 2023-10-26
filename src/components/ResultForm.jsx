@@ -30,49 +30,47 @@ const ResultForm = ({ toggle, setToggle }) => {
     }
 
     return (
-        <div className='border2' style={{width: '50%', margin: 'auto', border: 'solid 1px white'}}>
+        <div className='border2 results' style={{border: 'solid 1px white'}}>
                 <div className='form-wrapper'>
                     <form onSubmit={ (e) =>  { addResult(e, result) } }>
 
                         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                             <div style={{margin: '5px 0', width: '30%'}}>
-                            <input type='text' 
-                            required 
-                            name='student_name' 
-                            placeholder='Enter student name'
-                            value={result.student_name}
-                            onChange={handleInputChange}
-                            />
+                                <input type='text' 
+                                required 
+                                name='student_name' 
+                                placeholder='Enter student name'
+                                value={result.student_name}
+                                onChange={handleInputChange}
+                                />
+                            </div>
+
+                            <div style={{margin: '5px 0', width: '30%'}}>
+                                <select 
+                                required 
+                                name="subject" 
+                                onChange={handleInputChange}
+                                >
+                                <option value="Maths">Maths</option>
+                                <option value="English">English</option>
+                                <option value="Science">Science</option>
+                                <option value="Art">Art</option>
+                                <option value="History">History</option>
+                                </select>
+                            </div>
+
+                            <div style={{margin: '5px 0', width: '30%'}}>
+                                <input type='number' 
+                                required 
+                                name='score' 
+                                placeholder='Score (%)'
+                                value={result.score}
+                                onChange={handleInputChange}
+                                />
+                            </div>
                         </div>
 
-                        <div style={{margin: '5px 0', width: '30%'}}>
-                            <select 
-                            required 
-                            name="subject" 
-                            onChange={handleInputChange}
-                            >
-                            <option value="Maths">Maths</option>
-                            <option value="English">English</option>
-                            <option value="Science">Science</option>
-                            <option value="Art">Art</option>
-                            <option value="History">History</option>
-                            </select>
-                        </div>
-
-                        <div style={{margin: '5px 0', width: '30%'}}>
-                            <input type='number' 
-                            required 
-                            name='score' 
-                            placeholder='Score (%)'
-                            value={result.score}
-                            onChange={handleInputChange}
-                            />
-                        </div>
-                        </div>
-                        
-                        
-
-                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between', margin: '5px 0'}}>
+                        <div style={{margin: '5px 0'}}>
                             <textarea 
                             required 
                             maxLength='300' 
@@ -83,7 +81,7 @@ const ResultForm = ({ toggle, setToggle }) => {
                             >
                             </textarea>
                         </div>
-                        <br/>
+                        
                         <div className='field--wrapper'>
                             <input className='btn btn--lg' style={{backgroundColor: 'rgb(90, 143, 107)', color: 'white'}}
                             type='submit'

@@ -59,7 +59,6 @@ const Dashboard = () => {
         .then((actualData) => {
             let n = actualData.map(x => x.name)
             setNames(n)
-            console.log(n)
         })
         .catch((err) => {
             console.log(err.message);
@@ -82,18 +81,21 @@ const Dashboard = () => {
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-                <h1 style={{fontSize: '300%'}}>All Results</h1>
+                <h1>All Results</h1>
                 <p>Use the form to enter a student's name as well as their score and feedback for a subject to enter a new result, or view all student results in the table below.</p>
                 <br/>
                 <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-                    <h2 style={{fontSize: '250%', width: '50%', margin: 'auto'}}>Add Result</h2>
+                    <h2 id='addResult'>Add Result</h2>
                     <ResultForm toggle={toggle} setToggle={setToggle} />
+                </div>
+                    <br />
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                     <ResultsTable toggle={toggle} setToggle={setToggle} />
-                    <h2  style={{fontSize: '250%', textAlign: 'right', width: '50%', margin: 'auto'}}>View Results</h2>
+                    <h2 id='viewResults'>View Results</h2>
                 </div>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                <h1 style={{fontSize: '300%'}}>Class Results by Subject</h1>
+                <h1>Class Results by Subject</h1>
                 <p>View each student's average result for each subject.</p>
                 <br/>
                 <div className='classGrid'>
@@ -105,7 +107,7 @@ const Dashboard = () => {
                 </div>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                <h1 style={{fontSize: '300%'}}>Student Results</h1>
+                <h1>Student Results</h1>
                 <p>View each student's latest result for each subject and generate study strategies based on their latest feedback.</p>
                 <br/>
                 <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>

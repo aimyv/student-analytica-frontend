@@ -24,11 +24,10 @@ const ResultsTable = ({ toggle, setToggle }) => {
     }, [toggle])
     return (
         <>
-        <TableContainer component={Paper} style={{width:'50%', margin:'auto', border: 'solid 1px white'}}>
+        <TableContainer class='results' component={Paper} style={{ border: 'solid 1px white', borderRadius: '10px'}}>
             <Table size="small">
                 <TableHead style={{backgroundColor: 'rgb(90, 143, 107)'}}>
                 <TableRow>
-                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>ID</TableCell>
                     <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>Student</TableCell>
                     <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>Subject</TableCell>
                     <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>Score</TableCell>
@@ -40,7 +39,6 @@ const ResultsTable = ({ toggle, setToggle }) => {
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                    <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>{item.id}</TableCell>
                     <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>{item.student_name}</TableCell>
                     <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif'}}>{item.subject}</TableCell>
                     <TableCell style={{color: 'white', fontFamily: 'Montserrat, sans-serif', display: 'flex', justifyContent: 'space-between'}}><div>{item.score}</div><Trash2 className='delete--btn' onClick={async() => {
