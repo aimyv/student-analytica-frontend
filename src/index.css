@@ -74,12 +74,6 @@ body {
     }
 }
 
-@media only screen and (max-width: 680px) {
-    TableCell {
-        font-size: 5px;
-    }
-}
-
 .classGrid {
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -89,6 +83,13 @@ body {
     ". ."
     ". ."
     ". ."; 
+}
+
+@media only screen and (max-width: 750px) {
+    .classGrid {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 h1 {
