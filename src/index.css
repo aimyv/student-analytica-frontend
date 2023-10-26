@@ -38,7 +38,7 @@ body {
 #addResult {
     font-size: 250%; 
     width: 50%; 
-    margin: auto
+    margin: auto;
 }
 
 .results {
@@ -49,7 +49,7 @@ body {
     font-size: 250%; 
     text-align: right; 
     width: 50%; 
-    margin: auto
+    margin: auto;
 }
 
 @media only screen and (max-width: 680px) {
@@ -57,7 +57,7 @@ body {
         display: 'flex'; 
         flex-direction: 'column'; 
         width: 80%;
-        margin: auto
+        margin: auto;
     }
     #addResult {
         width: 100%; 
@@ -89,6 +89,38 @@ body {
     .classGrid {
         display: flex;
         flex-direction: column;
+    }
+}
+
+.studentResults {
+    width: 45%; 
+    margin: 30px;
+}
+
+.studentResultsFooter {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1250px) {
+    .studentResults {
+        width: 80%; 
+        margin: 30px auto;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .studentResultsFooter {
+        display: flex;
+        flex-direction: column;
+    }
+    .studentResultsFooter > div > h3 {
+        text-align: center;
+    }
+    .studentResultsFooter > button {
+        margin: 10px auto;
     }
 }
 

@@ -158,7 +158,7 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
     }
     
     return (
-        <div className='border2' style={{width:'45%', margin:'30px'}}>
+        <div className='border2 studentResults'>
             <h2>{student_name}</h2>
             <br/>
             <Radar 
@@ -175,7 +175,7 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
                     }
                 }}
             />
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+            <div class='studentResultsFooter'>
                 <div>
                     <h3>Strongest area: {checkMax()}</h3>
                     <h3>Weakest area: {checkMin()}</h3>
