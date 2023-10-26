@@ -21,6 +21,7 @@ ChartJS.register(
 );
 
 const RadarChart = ({ student_name, toggle, setToggle }) => {
+    // to read and set student results for each subject
     const [maths, setMaths] = useState({
         'score': 0,
         'feedback': ''
@@ -46,7 +47,9 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/students/${student_name}/results`).then((response) => response.json())
         .then((actualData) => {
+            // filter all maths results
             let m = actualData.filter(d => d.subject==='Maths')
+            // update state with latest maths result
             if (m.length !== 0) {
                 setMaths({
                     'score': m[m.length-1].score,
@@ -132,6 +135,7 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
     }
 
     async function handleResponse() {
+        // handles response from openai
         let message = []
         if (maths['feedback'] != '') {
             message.push(`My maths feedback says: "${maths['feedback']}" How can I improve?`)
@@ -154,7 +158,7 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
         console.log(feedback)
         const response = await axios.post('http://localhost:5000/report', feedback)
         setStrategy(response.data.content)
-        setToggle(!toggle)
+        setToggle(prevState => !prevState)
     }
     
     return (

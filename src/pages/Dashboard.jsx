@@ -45,11 +45,14 @@ function a11yProps(index) {
 }
 
 const Dashboard = () => {
+    // to change content when changing tabs
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    // for user logout
     const {user, handleUserLogout} = userAuth()
+    // to site content when results data changes
     const [toggle, setToggle] = useState(false);
 
     const [names, setNames] = useState([]);
@@ -57,6 +60,7 @@ const Dashboard = () => {
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/students`).then((response) => response.json())
         .then((actualData) => {
+            // reads current list of students and updates state
             let n = actualData.map(x => x.name)
             setNames(n)
         })

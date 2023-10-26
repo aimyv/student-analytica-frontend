@@ -13,12 +13,13 @@ const ResultForm = ({ toggle, setToggle }) => {
     const handleInputChange = (e)  => {
         let name = e.target.name
         let value =  e.target.value
-
+        // sets a field in new result
         setResult({...result, [name]: value})
     }
 
     const addResult = async (e, res) => {
         e.preventDefault()
+        // adds result to table
         setResult({
             student_name: res.student_name,
             subject: res.subject,

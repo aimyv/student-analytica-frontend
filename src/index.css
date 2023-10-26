@@ -1,6 +1,5 @@
 /* Global settings */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root{
@@ -12,6 +11,7 @@
     --textColorSecondary:rgb(226, 227, 232);
     --themeColorMain:rgb(92, 111, 104);
     --themeColorSecondary:rgb(90, 143, 107);
+    --brightGreen: #55cd4c;
 }
 
 * {
@@ -34,6 +34,8 @@ body {
     max-width: 600px;
     margin:20px auto;
 }
+
+/* Dashboard */
 
 #addResult {
     font-size: 250%; 
@@ -130,7 +132,7 @@ h1 {
     font-size: 300%;
 }
 
-/* Login & Register Pages */
+/* Login & Register Pages, Form components */
 
 .auth--container{
     height: 100vh;
@@ -141,10 +143,10 @@ h1 {
 }
 
 .border {
-    border:1px solid #55cd4c;
+    border:1px solid var(--brightGreen);
     border-radius: 10px;
     padding: 20px 30px 30px 30px;
-    box-shadow: 10px 10px #55cd4c;
+    box-shadow: 10px 10px var(--brightGreen);
     transition: 0.3s;
     background-color: var(--secondaryBgColor);
 }
@@ -189,7 +191,7 @@ input[type="number"], select{
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus, input[type="number"]:focus, select:focus {
-    border: solid 1px #55cd4c;
+    border: solid 1px var(--brightGreen);
 }
 
 /* Button Styling */
@@ -207,7 +209,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 
 .btn--main{
-    background-color: #55cd4c;
+    background-color: var(--brightGreen);
     color: #fff;
 }
 
@@ -220,7 +222,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 
 .delete--btn{
-    color: #55cd4c;
+    color: var(--brightGreen);
     cursor: pointer;
     transition: 0.3s;
     width: 16px;
@@ -237,5 +239,5 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 
 .header--link:hover{
-    color: #55cd4c;
+    color: var(--brightGreen);
 }

@@ -9,8 +9,10 @@ const BarChart = ({ subject, toggle }) => {
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/results/${subject}/average`).then((response) => response.json())
         .then((actualData) => {
+            // reads and sets student names
             let n = actualData[0]
             setNames(n)
+            // reads and sets average scores
             let s = actualData[1]
             setScores(s)
         })
@@ -34,6 +36,7 @@ const BarChart = ({ subject, toggle }) => {
         }]
     }
 
+    // returns class average for each subject
     function checkMean() {
         let sum = 0
         for (let i  of scores) {
