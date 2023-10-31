@@ -52,7 +52,7 @@ const Dashboard = () => {
     };
     // for user logout
     const {user, handleUserLogout} = userAuth()
-    // to site content when results data changes
+    // to change site content when results data changes
     const [toggle, setToggle] = useState(false);
 
     const [names, setNames] = useState([]);
@@ -115,8 +115,8 @@ const Dashboard = () => {
                 <p>View each student's latest result for each subject and generate study strategies based on their latest feedback.</p>
                 <br/>
                 <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-                    {names.map((item) => (
-                        <RadarChart student_name={item} toggle={toggle}  setToggle={setToggle} />
+                    {names.map((item, index) => (
+                        <RadarChart key={index} student_name={item} toggle={toggle} setToggle={setToggle} />
                     ))}
                 </div>
             </CustomTabPanel>

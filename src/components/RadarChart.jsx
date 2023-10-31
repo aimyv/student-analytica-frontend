@@ -179,7 +179,7 @@ const RadarChart = ({ student_name, toggle, setToggle }) => {
                     }
                 }}
             />
-            <div class='studentResultsFooter'>
+            <div className='studentResultsFooter'>
                 <div>
                     <h3>Strongest area: {checkMax()}</h3>
                     <h3>Weakest area: {checkMin()}</h3>
