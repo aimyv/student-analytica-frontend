@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
@@ -10,6 +10,15 @@ export const AuthProvider = ({children})  =>  {
 
     const [user, setUser] = useState(null)
 
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+            const foundUser = (loggedInUser);
+            setUser(foundUser);
+            navigate('/')
+        }
+    }, []);
+
     const handleUserLogin = async (e, credentials) => {
         e.preventDefault()
         try {
@@ -18,11 +27,8 @@ export const AuthProvider = ({children})  =>  {
                 password: credentials.password
             }
             const response = await axios.post('http://127.0.0.1:5000/login', accountDetails)
-            setUser({
-                email: credentials.email,
-                password: credentials.password,
-                username: response.data.username
-            })
+            setUser(response.data.username)
+            localStorage.setItem('user', response.data.username)
             navigate('/')
         } catch(error)  {
             console.log(error)
@@ -32,6 +38,7 @@ export const AuthProvider = ({children})  =>  {
     const handleUserLogout = async () => {
         await axios.get('http://127.0.0.1:5000/logout')
         setUser(null)
+        localStorage.clear()
     }
 
     const handleUserRegister = async (e, credentials) => {
@@ -47,13 +54,9 @@ export const AuthProvider = ({children})  =>  {
                 password1: credentials.password1,
                 password2: credentials.password2
             })
-            const accountDetails = {
-                email: credentials.email,
-                username: credentials.name,
-                password1: credentials.password1
-            }
-            setUser(accountDetails)
+            setUser(credentials.name)
             console.log('REGISTERED:', response)
+            localStorage.setItem('user', credentials.name)
             navigate('/')
         } catch(error) {
             console.log(error)
